@@ -65,7 +65,7 @@ All logic will be running in the same NodeJS application, which will expose the 
 
 So the basic functional design (what the application will look like at runtime) will be like this, for a single source application publishing messages consumed by a single destination application:
 
-Image 1
+![ESB Components](/images/ESB-components.png "ESB Components")
 
 Figure 1. ESB components
 The figure shows a source system (A), the RabbitMQ routing (Exchange and Queue), the transformation (Consumer) and the destination system (B).
