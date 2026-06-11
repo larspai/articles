@@ -42,7 +42,7 @@ To make things even more interesting, there are lots of libraries out there to d
 
 (Notice that one of the structural challenges in translating XML to json - tag attributes - may be totally avoided in the scheme described).
 
-Image 1
+![ESB Components](/images/Image(12).jpg "ESB Components")
 
 This, of course, was just a thought experiment, but I think one that has a lot to offer. It also implies that the developers are proficient in handling both json and XML though. The proposition however also touches on another common requirement: the need to have more steps in the processing of a single message. In the scheme described, all incoming messages would be translated into XML, then posted to the routing mechanism, i.e., to one or more exchanges in a Rabbit MQ. Each consumer would then translate the relevant (subscribed to) messages by means of XSLT. Finally, the XML document might be translated into json to deliver it to the destination system.
 
