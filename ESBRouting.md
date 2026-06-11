@@ -26,7 +26,7 @@ In more architectural terms, the ESB must offer:
 - a transformation mechanism
 - a delivery mechanism
 
-Image 1
+![ESB Components](/images/ESB-components.png "ESB Components")
 
 ESB components
 
@@ -45,7 +45,7 @@ It may sound strange that the source system is an interesting property, but whil
 
 Although it may sound so, this does not conflict with the abstraction. The abstraction is instituted by the message type always looking the same - so orders coming from two different stores should have the same format. (As mentioned, the ESB may preprocess messages to obtain this, but this is beyond the scope of this article). From an operational point of view, the source system events often define the interest of the destination system - and therefore is key in the routing. More on this later.
 
-Image 2
+![ESB Components](/images/Image(4).png "ESB Components")
 
 Example showing multiple subscribers to the same message
 
@@ -71,7 +71,7 @@ For a production scale system, you will probably want to add a version number to
 ## Example
 I will use the considerations about metadata or routing keys above in a radical design of the web service methods. I will have it define a method that is called through a URL according to the following pattern:
 
-HTTP://<domain>/<sourcesystem>/<routingkey>
+HTTP://&lt;domain&gt;/&lt;sourcesystem&gt/&lt;routingkey&gt;
 
 Basically, it will allow POST calls of the following type (the service running locally):
 
@@ -88,7 +88,7 @@ You could argue that the abstraction could be taken a little further, by letting
 
 It will also allow many source systems/publishers to send messages to the same end-point:
 
-Image 3
+![ESB Components](/images/Image(11).jpg "ESB Components")
 
 To allow the source system to add more routing keys, a service responding to an API call according to this pattern could be implemented:
 
