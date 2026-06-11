@@ -16,7 +16,7 @@ The model defines or describes three processes: Quote-to-Cash, Provisioning and 
 
 It looks like this:
 
-Image 1
+![Standard H](/images/Standard-H.png "Standard H")
 
 In ordinary terms, the model is about three questions: How do we produce our product? How do we sell it? And how do we make sure the customers get what they paid for?
 
@@ -32,9 +32,10 @@ In this process, an order is created in the first step. This could be in a manag
 2. The **Provisioning** process, which is initiated with the creation of the order in the eCommerce system. This process is about making sure that the customer gets what they have purchased, and could be, i.e., by expressing the purchase in shape of user entitlements, that may inform some production system, about what the users should be allowed access to. It also could be a production order sent to a MES system (Manufacturing Execution System). Thus the last piece of the provisioning process is some part of the production system - in a web application, it would be the application frontend.
 
 3. The **Production** process, which consists of some input system or backend, a business logic and presentation component and some delivery point. In a web application context, the components may be a CMS, a web server application and the client browser.
+
 To come a little closer to the flows and integrations, and integration types, I will add some arrows and objects to the standard H model, to indicate what sort of data could be flowing between the components. I will also change the name of a few components: The model is generic and the important thing is to use it to get a mental image of the processes in the enterprise:
 
-Image 2
+![Standard H 2](/images/Standard-H-2.png "Standard H 2")
 
 ## Event Driven or Request-Response?
 Looking at the arrows, it is quite obvious which relations might be event driven, and which would be request-response type. Thinking about the processes, it makes sense that some flows happen as consequences to events: the order being created in the CRM (Customer Relation Management) system, causes the order to be sent to the eCommerce system, while others are triggered by requests: the user requesting for some data requires the API to ask the entitlement service, if this user has the right to get it.
@@ -54,7 +55,7 @@ I have earlier suggested that an ESB should offer:
 
 These components create the basics in transporting and transforming a message from application A to application B:
 
-Image 3
+![ESB Components](/images/Image(17).jpg "ESB Components")
 
 However, this simple setup (you only need to create the web service endpoint and the transformation/delivery component - the message queue is a commodity) is not enough, if you want to create an infrastructure for enterprise-wide distribution and reuse of key data objects like orders, subscriptions, users, products, payments, etc.
 
@@ -71,13 +72,13 @@ To summarise, I suggest that:
 
 This suggests a somewhat more complex setup, but as mentioned in an earlier article, the components may be almost generic and only differ in i.e., the transformation logic. The design would look something like this:
 
-Image 4
+![ESB Components](/images/Image(16).jpg "ESB Components")
 
 Note that in the above, I have omitted separate delivery components. This responsibility can be part of the transformation component, but it may be practical (i.e., to be able to have entirely generic transformation components) to separate the two responsibilities in each their own components.
 
 Applying the design to the processes above, an implementation might look like this - as a starting point:
 
-Image 5
+![ESB Components](/images/Image(6).png "ESB Components")
 
 With a landscape like this in place, any application in the enterprise may set up their own queues to listen for event messages describing the state of changed objects in the publishing applications. A couple of such consumers are illustrated in the figure, to show how, i.e., the ERP system may listen for invoices or the Business logic component listen to backend data input.
 
@@ -85,7 +86,7 @@ Often, you will see APIs build as such consumers, in order to add a request-resp
 
 An example of such APIs could be the entitlement service and the production flow, if we were thinking of a SaaS application of some sort. The transformation components could be responsible for inserting the transformed messages into the API database:
 
-Image 6
+![ESB Components](/images/Image(15).jpg "ESB Components")
 
 ## Some Thoughts on Models
 I have spent a lot of time on models in my time, from Yourdon to UML and I strongly believe in them. Actually, it is my belief that the way we understand our world is by model: we do not understand phenomena as they are, we create thought-models to represent them and to understand their characteristics and properties. Models are central to our understanding of things.
