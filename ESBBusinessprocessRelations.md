@@ -35,7 +35,7 @@ In this process, an order is created in the first step. This could be in a manag
 
 To come a little closer to the flows and integrations, and integration types, I will add some arrows and objects to the standard H model, to indicate what sort of data could be flowing between the components. I will also change the name of a few components: The model is generic and the important thing is to use it to get a mental image of the processes in the enterprise:
 
-<img src="images/images/Standard-H-2.png" alt="Standard H" width="400"/>
+<img src="images/Standard-H-2.png" alt="Standard H" width="400"/>
 
 ## Event Driven or Request-Response?
 Looking at the arrows, it is quite obvious which relations might be event driven, and which would be request-response type. Thinking about the processes, it makes sense that some flows happen as consequences to events: the order being created in the CRM (Customer Relation Management) system, causes the order to be sent to the eCommerce system, while others are triggered by requests: the user requesting for some data requires the API to ask the entitlement service, if this user has the right to get it.
