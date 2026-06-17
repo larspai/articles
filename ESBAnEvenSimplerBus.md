@@ -27,13 +27,14 @@ Note that back when I published that article, I did not consider NodeJS to be pr
 ## ESB Design
 As mentioned above, the ESB implements a publish subscribe pattern. In this article, I have suggested publishing to happen through a generic web service. The routing is handled by RabbitMQ exchanges and queues, and subscription is done by consumers listening for messages on queues. The components may be illustrated like this:
 
-<img src="images/ESB-components.png" alt="ESB Components" width="600"/>
+<img src="images/Image(14).jpg" alt="Roles" width="600"/>
 
 As this article has only been focusing on the publishing part, the included code project only contains a web service to provide the discussed end point. One of the beauties of the ESB pattern is that the consumers may be created in any language or tool, like Node, Go, Kotlin, C#, Mulesoft - basically anything that can read from the queue, do the necessary transformation and deliver to the destination. The delivery may even be handled by its own component as illustrated, so that you may only have one component delivering to each destination system, and thus only one component having the relevant credentials to interact with that particular system. This would be consistent with a three layer design, letting our receiving service be the experience (x-) layer, the consumers be the transformation or processing (p-) layer, and the delivery services the system (s-) layer.
-The layered design is discussed well and in more detail in this Mulesoft whitepaper. You will find my recommendation here to differ significantly on the x-layer role, as my point is that the front end of an ESB is not an API as such.
+The layered design is discussed well and in more detail in this [Mulesoft whitepaper](https://www.mulesoft.com/sites/default/files/resource-assets/API-led-connectivity-new-soa-updated.pdf). You will find my recommendation here to differ significantly on the x-layer role, as my point is that the front end of an ESB is not an API as such.
 The drawing below illustrates how the components may depend on each other. The example suggests that system A publish data that is consumed by system C, and system B publish data that is consumed by both systems C and D.
 
-<img src="images/Image(14).jpg" alt="Roles" width="600"/>
+<img src="images/Image(13).jpg" alt="Roles" width="600"/>
+
 ## Web Service Requirements
 The requirements for the web service can be listed as follows:
 - It should be agnostic to the received payload (but you might choose to convert to i.e. json so that all published messages are same format).
