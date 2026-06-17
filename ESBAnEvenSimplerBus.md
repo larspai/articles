@@ -26,11 +26,14 @@ With the composite architecture of an application/integration with the ESB and s
 Note that back when I published that article, I did not consider NodeJS to be production ready. I do now.
 ## ESB Design
 As mentioned above, the ESB implements a publish subscribe pattern. In this article, I have suggested publishing to happen through a generic web service. The routing is handled by RabbitMQ exchanges and queues, and subscription is done by consumers listening for messages on queues. The components may be illustrated like this:
-![ESB Components](/images/ESB-components.png "ESB Components") 
+
+<img src="images/ESB-components.png" alt="ESB Components" width="600"/>
+
 As this article has only been focusing on the publishing part, the included code project only contains a web service to provide the discussed end point. One of the beauties of the ESB pattern is that the consumers may be created in any language or tool, like Node, Go, Kotlin, C#, Mulesoft - basically anything that can read from the queue, do the necessary transformation and deliver to the destination. The delivery may even be handled by its own component as illustrated, so that you may only have one component delivering to each destination system, and thus only one component having the relevant credentials to interact with that particular system. This would be consistent with a three layer design, letting our receiving service be the experience (x-) layer, the consumers be the transformation or processing (p-) layer, and the delivery services the system (s-) layer.
 The layered design is discussed well and in more detail in this Mulesoft whitepaper. You will find my recommendation here to differ significantly on the x-layer role, as my point is that the front end of an ESB is not an API as such.
 The drawing below illustrates how the components may depend on each other. The example suggests that system A publish data that is consumed by system C, and system B publish data that is consumed by both systems C and D.
-![Roles](/images/Image(14).jpg "Roles") 
+
+<img src="images/Image(14).jpg" alt="Roles" width="1000"/>
 ## Web Service Requirements
 The requirements for the web service can be listed as follows:
 - It should be agnostic to the received payload (but you might choose to convert to i.e. json so that all published messages are same format).
