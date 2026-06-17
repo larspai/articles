@@ -61,7 +61,7 @@ The business systems each have their own databases, and their customer account o
 
 I call my simplified model the standard-H, albeit the H is lying on its side. It looks like this:
 
-![Standard H](/images/Standard-H.png "Standard H")
+<img src="images/Standard-H.png" alt="Standard H" width="400"/>
 
 Generic business process model
 
