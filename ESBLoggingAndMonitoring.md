@@ -67,13 +67,13 @@ All logic will be running in the same NodeJS application, which will expose the 
 
 So the basic functional design (what the application will look like at runtime) will be like this, for a single source application publishing messages consumed by a single destination application:
 
-![ESB Components](/images/ESB-components.png "ESB Components")
+<img src="images/ESB-components.png" alt="ESB Components" width="400"/>
 
 Figure 1. ESB components
 
 The figure shows a source system (A), the RabbitMQ routing (Exchange and Queue), the transformation (Consumer) and the destination system (B).
 
-![More consumers](/images/Image(4).png "More consumers")
+<img src="images/Image(4).png" alt="More consumers" width="400"/>
 
 Figure 2. More consumers
 
@@ -88,7 +88,7 @@ The above ESB design will receive messages, distribute them, transform them and 
 
 The basic requirement to satisfy enquiries from system owner stakeholders is to be able to log the message that the source system delivered as well as the message that the destination system received. For debugging reasons, it may be relevant to log states of the message at points in between these two messages, and it may be well worth logging the response from the destination system upon delivery - if such a response is given.
 
-![Relevant points](/images/Image(1).png "Relevant points")
+<img src="images/Image(1).png" alt="Relevant points" width="400"/>
 
 Figure 3. Relevant points at which to log messages
 
@@ -100,7 +100,7 @@ Logging in the transformation part is implemented by letting the consumer flows 
 
 To tie everything together, a correlation ID is added to the message header by the receiving web service.
 
-![Logging components](/images/Image.png "Logging Components")
+<img src="images/Image.png" alt="Logging Components" width="400"/>
 
 Figure 4. Logging components
 ## Database
@@ -123,7 +123,7 @@ User interfaces are a discipline of its own and the test application implementat
 
 1. A page to set up consumers, defining routing keys and transformation templates, etc. The transformation logic could be implemented in many ways, in this case, the node-json-transform library was used as it offers a simple way to handle even complex json documents.
 
-![Management](/images/Image(10).jpg "Management")
+<img src="images/Image(10).jpg" alt="Management" width="400"/>
 
 For demo purposes, this management page allows the user to stop a flow without stopping the subscription, thus messages to the destination system is queued up until the consumer is restarted, which is a very useful feature.
 
@@ -132,15 +132,15 @@ This is where users should be able to search for transactions going out of, or i
 
 The test application only offers a view of the latest 50 transactions(!).
 
-![Transactions](/images/Image(9).jpg "Transactions")
+<img src="images/Image(9).jpg" alt="Transactions" width="400"/>
 
 From this page, the actual message payloads may be displayed and even edited and resubmitted - a feature that probably should be given only limited access to.
 
-![Source system](/images/Image(8).jpg "Source system")
+<img src="images/Image(8).jpg" alt="Source system" width="400"/>
 
 3. A page to simulate a source system and thus to create transactions.
 
-![Source system](/images/Image(7).jpg "Source system")
+<img src="images/Image(7).jpg" alt="Source system" width="400"/>
 
 As can be seen on the screenshots above, a few additional features have been implemented, but basically the presentation of message data may take any desired form.
 
