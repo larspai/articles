@@ -73,7 +73,7 @@ So let's think about IT for a moment here - it will lead us back to the discussi
 
 Suppose you run a SaaS company, you may already start pinning out what sort of data needs to run between different parts in the model - and different parts will likely be represented by each their own system. You can even get an idea of the integration types required between components (BTW: check out my article on relation between business processes and integrations):
 
-![Standard H](/images/Standard-H-2.png "Standard H")
+<img src="images/Standard-H-2.png" alt="Standard H" width="400"/>
 
 Likely data interchanges
 
@@ -120,7 +120,7 @@ I think the most fundamental thinking about organisation - and what has been the
 
 At the moment, the organisation will consist of a number of business domains - production, sales, marketing, etc. and an IT organisation that supports the domains and their processes with IT, from managing laptops, network, security, etc. to integrating business applications and often further on to developing custom production applications, possibly even producing the production equipment per se.
 
-![Organization](/images/StandardH_-_Page_3.png "Organization")
+<img src="images/StandardH_-_Page_3.png" alt="Organization" width="350"/>
 
 IT as support organisation
 
@@ -136,7 +136,7 @@ IT is a delivery organisation. Depending on the maturity of the organisation, it
 
 In the execution phase, IT will talk to subject matter experts, to detail the requirements, create measurable key results, etc.
 
-![Organization interfaces](/images/StandardH_-_Page_4.png "Organization interfaces")
+<img src="images/StandardH_-_Page_4.png" alt="Organization interfaces" width="400"/>
 
 Business to IT interface
 
