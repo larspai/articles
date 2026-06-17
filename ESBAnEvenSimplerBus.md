@@ -33,7 +33,7 @@ As this article has only been focusing on the publishing part, the included code
 The layered design is discussed well and in more detail in this Mulesoft whitepaper. You will find my recommendation here to differ significantly on the x-layer role, as my point is that the front end of an ESB is not an API as such.
 The drawing below illustrates how the components may depend on each other. The example suggests that system A publish data that is consumed by system C, and system B publish data that is consumed by both systems C and D.
 
-<img src="images/Image(14).jpg" alt="Roles" width="1000"/>
+<img src="images/Image(14).jpg" alt="Roles" width="600"/>
 ## Web Service Requirements
 The requirements for the web service can be listed as follows:
 - It should be agnostic to the received payload (but you might choose to convert to i.e. json so that all published messages are same format).
