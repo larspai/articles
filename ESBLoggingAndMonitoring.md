@@ -2,6 +2,8 @@
 
 First published 12 Feb 2018
 
+[Download code](https://github.com/larspai/articles/blob/main/code/distrbute.zip) (Click the "View raw" link to start download)
+
 ## Introduction - The Scope
 
 While implementing an ESB is not too difficult, it is often forgotten to produce a reporting framework around it, to allow its stakeholders to see exactly what transactions are flowing between the systems, what data was actually sent and what was received. This is, however, a rather important component, both for you (for debugging and for exposing and advertising your service), for the users/stakeholders, but not least in a compliance/control/audit context.
